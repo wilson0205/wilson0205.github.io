@@ -2,7 +2,9 @@
 <html>
   <head>
     <title>Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Add your CSS here */
+    </style>
   </head>
   <body>
     <h1>Calculator</h1>
@@ -28,6 +30,80 @@
       <button id="decimal" class="number">.</button>
       <button id="equals" class="operator">=</button>
     </div>
-    <script src="script.js"></script>
-  </body>
-</html>
+    <script>
+      const output = document.getElementById("output");
+      let currentNumber = "";
+      let previousNumber = "";
+      let currentOperator = "";
+
+      function updateOutput() {
+        output.textContent = currentNumber;
+      }
+
+      function handleNumber(event) {
+        const button = event.target;
+        currentNumber += button.textContent;
+        updateOutput();
+      }
+
+      function handleOperator(event) {
+        const button = event.target;
+        previousNumber = currentNumber;
+        currentNumber = "";
+        currentOperator = button.textContent;
+      }
+
+      function handleEquals() {
+        if (currentOperator === "+") {
+          currentNumber = (Number(previousNumber) + Number(currentNumber)).toString();
+        } else if (currentOperator === "-") {
+          currentNumber = (Number(previousNumber) - Number(currentNumber)).toString();
+        } else if (currentOperator === "x") {
+          currentNumber = (Number(previousNumber) * Number(currentNumber)).toString();
+        } else if (currentOperator === "÷") {
+          currentNumber = (Number(previousNumber) / Number(currentNumber)).toString();
+        }
+        currentOperator = "";
+        updateOutput();
+      }
+
+      function handleClear() {
+        currentNumber = "";
+previousNumber = "";
+currentOperator = "";
+updateOutput();
+}
+
+function handleNegative() {
+  currentNumber = (-1 * Number(currentNumber)).toString();
+  updateOutput();
+}
+
+function handlePercent() {
+  currentNumber = (Number(currentNumber) / 100).toString();
+  updateOutput();
+}
+
+const numbers = document.querySelectorAll(".number");
+numbers.forEach(button => {
+  button.addEventListener("click", handleNumber);
+});
+
+const operators = document.querySelectorAll(".operator");
+operators.forEach(button => {
+  button.addEventListener("click", handleOperator);
+});
+
+const equalsButton = document.getElementById("equals");
+equalsButton.addEventListener("click", handleEquals);
+
+const clearButton = document.getElementById("clear");
+clearButton.addEventListener("click", handleClear);
+
+const negativeButton = document.getElementById("negative");
+negativeButton.addEventListener("click", handleNegative);
+
+const percentButton = document.getElementById("percent");
+percentButton.addEventListener("click", handlePercent);
+
+       
