@@ -3,7 +3,39 @@
   <head>
     <title>Calculator</title>
     <style>
-      /* Add your CSS here */
+      #output {
+  background-color: #DBDBDB;
+  color: black;
+  font-size: 2em;
+  text-align: right;
+  padding: 20px;
+  width: 100%;
+}
+
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: #EFEFF4;
+  border: none;
+  color: black;
+  font-size: 1.5em;
+  width: 25%;
+  height: 60px;
+}
+
+.operator {
+  background-color: #D3D3D3;
+}
+
+@media (max-width: 600px) {
+  button {
+    width: 50%;
+  }
+}
+
     </style>
   </head>
   <body>
