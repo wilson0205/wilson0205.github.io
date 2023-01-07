@@ -1,54 +1,119 @@
+/* Add a background color and some padding to the body */
 body {
-  background-color: lightgray;
-  font-family: sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
 }
 
+/* Style the calculator container */
+#calculator {
+  width: 320px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+}
+
+/* Style the output */
 #output {
-  background-color: white;
-  height: 50px;
-  width: 225px;
-  margin: 10px auto;
+  width: 100%;
+  height: 80px;
+  font-size: 36px;
+  line-height: 80px;
   text-align: right;
-  font-size: 2em;
-  padding: 10px;
-  border: 1px solid gray;
+  padding: 0 20px;
   box-sizing: border-box;
+  border: none;
+  background-color: #eee;
+  color: #666;
 }
 
+/* Style the buttons */
 #buttons {
-  width: 225px;
-  margin: 10px auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #ddd;
 }
 
 button {
-  background-color: white;
-  border: 1px solid gray;
-  font-size: 2em;
-  padding: 20px;
+  width: 25%;
+  height: 60px;
+  font-size: 18px;
+  border: none;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: lightgray;
+/* Style the clear and negative buttons */
+#clear,
+#negative {
+  background-color: #f44336;
+  color: #fff;
 }
 
-button#clear {
-  background-color: orange;
-  color: white;
+#clear {
+  border-radius: 6px 0 0 0;
 }
 
-button#clear:hover {
-  background-color: darkorange;
+#negative {
+  border-radius: 0 6px 0 0;
 }
 
-button#equals {
-  background-color: blue;
-  color: white;
+/* Style the number buttons */
+#seven,
+#four,
+#one,
+#zero {
+  border-radius: 0 0 0 6px;
 }
 
-button#equals:hover {
-  background-color: darkblue;
+#eight,
+#five,
+#two {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#nine,
+#six,
+#three {
+  border-radius: 0 0 6px 0;
+}
+
+/* Style the operation buttons */
+.operation {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+/* Style the equals button */
+#equals {
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 0 0 6px 6px;
+}
+
+/* Style the decimal button */
+#decimal {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+/* Make the buttons responsive */
+@media (max-width: 600px) {
+  #output {
+    height: 60px;
+    font-size: 30px;
+    line-height: 60px;
+  }
+
+  button {
+    width: 50%;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  #clear,
+  #negative {
+    height: 80px;
+  }
 }
