@@ -71,17 +71,17 @@ document.getElementById("divide").addEventListener("click", () => {
 });
 
 document.getElementById("seven").addEventListener("click", () => {
-  currentNumber += "7";
+  currentNumber = currentNumber === "0" ? "7" : currentNumber + "7";
   updateOutput();
 });
 
 document.getElementById("eight").addEventListener("click", () => {
-  currentNumber += "8";
+  currentNumber = currentNumber === "0" ? "8" : currentNumber + "8";
   updateOutput();
 });
 
 document.getElementById("nine").addEventListener("click", () => {
-  currentNumber += "9";
+  currentNumber = currentNumber === "0" ? "9" : currentNumber + "9";
   updateOutput();
 });
 
@@ -90,17 +90,17 @@ document.getElementById("multiply").addEventListener("click", () => {
 });
 
 document.getElementById("four").addEventListener("click", () => {
-  currentNumber += "4";
+  currentNumber = currentNumber === "0" ? "4" : currentNumber + "4";
   updateOutput();
 });
 
 document.getElementById("five").addEventListener("click", () => {
-  currentNumber += "5";
+  currentNumber = currentNumber === "0" ? "5" : currentNumber + "5";
   updateOutput();
 });
 
 document.getElementById("six").addEventListener("click", () => {
-  currentNumber += "6";
+  currentNumber = currentNumber === "0" ? "6" : currentNumber + "6";
   updateOutput();
 });
 
@@ -109,17 +109,17 @@ document.getElementById("subtract").addEventListener("click", () => {
 });
 
 document.getElementById("one").addEventListener("click", () => {
-  currentNumber += "1";
+  currentNumber = currentNumber === "0" ? "1" : currentNumber + "1";
   updateOutput();
 });
 
 document.getElementById("two").addEventListener("click", () => {
-  currentNumber += "2";
+  currentNumber = currentNumber === "0" ? "2" : currentNumber + "2";
   updateOutput();
 });
 
 document.getElementById("three").addEventListener("click", () => {
-  currentNumber += "3";
+  currentNumber = currentNumber === "0" ? "3" : currentNumber + "3";
   updateOutput();
 });
 
@@ -131,7 +131,7 @@ document.getElementById("zero").addEventListener("click", () => {
   if (currentNumber === "0") {
     return;
   }
-  currentNumber += "0";
+  currentNumber = currentNumber === "0" ? "0" : currentNumber + "0";
   updateOutput();
 });
 
@@ -139,7 +139,7 @@ document.getElementById("decimal").addEventListener("click", () => {
   if (currentNumber.includes(".")) {
     return;
   }
-  currentNumber += ".";
+  currentNumber = currentNumber === "0" ? "." : currentNumber + ".";
   updateOutput();
 });
 
@@ -147,3 +147,6 @@ document.getElementById("equals").addEventListener("click", () => {
   operate();
   updateOutput();
 });
+
+
+
