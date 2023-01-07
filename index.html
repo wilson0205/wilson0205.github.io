@@ -2,142 +2,33 @@
 <html>
   <head>
     <title>Calculator</title>
-    <style>
-      #output {
-  background-color: #DBDBDB;
-  color: black;
-  font-size: 2em;
-  text-align: right;
-  padding: 20px;
-  width: 100%;
-}
-
-#buttons {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-button {
-  background-color: #EFEFF4;
-  border: none;
-  color: black;
-  font-size: 1.5em;
-  width: 25%;
-  height: 60px;
-}
-
-.operator {
-  background-color: #D3D3D3;
-}
-
-@media (max-width: 600px) {
-  button {
-    width: 50%;
-  }
-}
-
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Calculator</h1>
-    <div id="output">0</div>
-    <div id="buttons">
-      <button id="clear" class="operator">AC</button>
-      <button id="negative" class="operator">+/-</button>
-      <button id="percent" class="operator">%</button>
-      <button id="divide" class="operator">÷</button>
-      <button id="seven" class="number">7</button>
-      <button id="eight" class="number">8</button>
-      <button id="nine" class="number">9</button>
-      <button id="multiply" class="operator">x</button>
-      <button id="four" class="number">4</button>
-      <button id="five" class="number">5</button>
-      <button id="six" class="number">6</button>
-      <button id="subtract" class="operator">-</button>
-      <button id="one" class="number">1</button>
-      <button id="two" class="number">2</button>
-      <button id="three" class="number">3</button>
-      <button id="add" class="operator">+</button>
-      <button id="zero" class="number">0</button>
-      <button id="decimal" class="number">.</button>
-      <button id="equals" class="operator">=</button>
+    <div id="calculator">
+      <div id="display"></div>
+      <div class="keypad">
+        <button class="operator" value="clear">AC</button>
+        <button class="operator" value="+/-">+/-</button>
+        <button class="operator" value="%">%</button>
+        <button class="operator" value="/">&divide;</button>
+        <button value="7">7</button>
+        <button value="8">8</button>
+        <button value="9">9</button>
+        <button class="operator" value="*">&times;</button>
+        <button value="4">4</button>
+        <button value="5">5</button>
+        <button value="6">6</button>
+        <button class="operator" value="-">&minus;</button>
+        <button value="1">1</button>
+        <button value="2">2</button>
+        <button value="3">3</button>
+        <button class="operator" value="+">&plus;</button>
+        <button class="zero" value="0">0</button>
+        <button value=".">.</button>
+        <button class="operator" value="=">=</button>
+      </div>
     </div>
-    <script>
-      const output = document.getElementById("output");
-      let currentNumber = "";
-      let previousNumber = "";
-      let currentOperator = "";
-
-      function updateOutput() {
-        output.textContent = currentNumber;
-      }
-
-      function handleNumber(event) {
-        const button = event.target;
-        currentNumber += button.textContent;
-        updateOutput();
-      }
-
-      function handleOperator(event) {
-        const button = event.target;
-        previousNumber = currentNumber;
-        currentNumber = "";
-        currentOperator = button.textContent;
-      }
-
-      function handleEquals() {
-        if (currentOperator === "+") {
-          currentNumber = (Number(previousNumber) + Number(currentNumber)).toString();
-        } else if (currentOperator === "-") {
-          currentNumber = (Number(previousNumber) - Number(currentNumber)).toString();
-        } else if (currentOperator === "x") {
-          currentNumber = (Number(previousNumber) * Number(currentNumber)).toString();
-        } else if (currentOperator === "÷") {
-          currentNumber = (Number(previousNumber) / Number(currentNumber)).toString();
-        }
-        currentOperator = "";
-        updateOutput();
-      }
-
-      function handleClear() {
-        currentNumber = "";
-previousNumber = "";
-currentOperator = "";
-updateOutput();
-}
-
-function handleNegative() {
-  currentNumber = (-1 * Number(currentNumber)).toString();
-  updateOutput();
-}
-
-function handlePercent() {
-  currentNumber = (Number(currentNumber) / 100).toString();
-  updateOutput();
-}
-
-const numbers = document.querySelectorAll(".number");
-numbers.forEach(button => {
-  button.addEventListener("click", handleNumber);
-});
-
-const operators = document.querySelectorAll(".operator");
-operators.forEach(button => {
-  button.addEventListener("click", handleOperator);
-});
-
-const equalsButton = document.getElementById("equals");
-equalsButton.addEventListener("click", handleEquals);
-
-const clearButton = document.getElementById("clear");
-clearButton.addEventListener("click", handleClear);
-
-const negativeButton = document.getElementById("negative");
-negativeButton.addEventListener("click", handleNegative);
-
-const percentButton = document.getElementById("percent");
-percentButton.addEventListener("click", handlePercent);
-      
-    </script>
-
-       
+    <script src="script.js"></script>
+  </body>
+</html>
