@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+  
+  #calculator {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #333333;
+    border-radius: 10px;
+    font-family: sans-serif;
+  }
+  
+  #display {
+    width: 100%;
+    height: 80px;
+    background-color: #111111;
+    color: #dddddd;
+    font-size: 40px;
+    text-align: right;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #444444;
+  }
+  
+  .keypad {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(100% - 80px);
+  }
+  
+  .keypad button {
+    width: 25%;
+    height: 80px;
+    background-color: #222222;
+    color: #dddddd;
+    font-size: 20px;
+    cursor: pointer;
+    border: none; /* Add this line to remove the border */
+    outline: none; /* Add this line to remove the outline */
+  }
+  
+  .keypad button.operator {
+    background-color: #555555;
+  }
+  
+  .keypad button.zero {
+    width: 50%;
+  }
+  
+  /*Add a media query to adjust the size of the buttons on smaller screens*/
+  @media screen and (max-width: 500px) {
+    .keypad button {
+      width: 20%;
+      height: 60px;
+      font-size: 30px; /*can decrease font-size for small screens*/
+    }
+    .keypad button.zero {
+      width: 40%;
+    }
+    /*Adjust the font-size of the display element*/
+    #display {
+        font-size: 30px;
+        height: 100px;
+    }
+  }
+
