@@ -1,0 +1,81 @@
+html, body {
+height: 100%;
+width: 100%;
+margin: 0;
+}
+
+/* Add the following code to make all elements expand according to screen dimensions */
+
+{
+box-sizing: border-box;
+}
+#calculator {
+width: 100vw; /* Add this line to make the calculator container responsive to the screen size /
+height: 100vh; / Add this line to make the calculator container responsive to the screen size */
+margin: 0;
+background-color: #333333;
+border-radius: 10px;
+font-family: sans-serif;
+}
+
+#display {
+width: 100%;
+height: 80px;
+background-color: #111111;
+color: #dddddd;
+font-size: 40px;
+text-align: right;
+padding: 20px;
+box-sizing: border-box;
+border-bottom: 1px solid #444444;
+}
+
+.keypad {
+display: flex;
+flex-wrap: wrap;
+width: 100vw; /* Add this line to make the keypad container responsive to the screen size /
+height: calc(100vh - 80px); / Add this line to make the keypad container responsive to the screen size */
+}
+
+.keypad button {
+width: 25%;
+height: 80px;
+background-color: #222222;
+color: #dddddd;
+font-size: 20px;
+cursor: pointer;
+border: none; /* Add this line to remove the border /
+outline: none; / Add this line to remove the outline */
+}
+
+.keypad button.operator {
+background-color: #555555;
+}
+
+.keypad button.zero {
+width: 50%;
+}
+
+/Add a media query to adjust the size of the buttons on smaller screens/
+/* Add a media query to adjust the styles for devices with a screen width less than or equal to 720px */
+@media screen and (max-width: 720px) {
+    /* Adjust the dimensions of the calculator container to fit the full screen */
+    #calculator {
+        width: 100vw;
+        height: 100vh;
+    }
+    /* Adjust the dimensions of the keypad container to fit the full screen */
+    .keypad {
+        width: 100vw;
+        height: calc(100vh - 80px);
+    }
+    /* Adjust the dimensions of the buttons to fit the full screen */
+    .keypad button {
+        width: 20%;
+        height: 60px;
+    }
+    /* Adjust the font-size of the display element for small screens */
+    #display {
+        font-size: 30px;
+    }
+}
